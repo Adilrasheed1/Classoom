@@ -1,3 +1,4 @@
+import { ProblemForm } from "./components/ProblemForm"
 import { Classroom } from "./pages/Classroom"
 import { JoiningPage } from "./pages/JoiningPage"
 
@@ -11,6 +12,7 @@ function App() {
   <Routes>
     <Route path="/" element={ <JoiningPage/>}/>
     <Route path="/Class" element={ <Classroom/>}/>
+    <Route path='/postproblem' element={<ProblemForm/>}/>
   </Routes>
      </BrowserRouter>
 
