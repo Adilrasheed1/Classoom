@@ -1,5 +1,6 @@
 const express=require('express');
 const {User}=require('../db')
+const userMiddleware=require('../middlewares/user')
 const router=express.Router();
 router.post('/signup',(req,res)=>{
     const firstname=req.body.firstname;
@@ -16,4 +17,10 @@ router.post('/signup',(req,res)=>{
 })
 
 })
-module.exports=router;
+router.post('/signin',userMiddleware,(req,res)=>{
+    res.json({
+        msg:"user logged in"
+    })
+   
+})
+module.exports=router; 
