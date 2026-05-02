@@ -3,7 +3,7 @@ export function InputCompo(props){
     <label className={props.class}>
        {props.title}
  </label>
-    <input  className={props.className} type="text" placeholder={props.placeholder}></input>
+    <input  className={props.className} type="text" placeholder={props.placeholder} onChange={props.onChange}/> 
    
     </>
 }
