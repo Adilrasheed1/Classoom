@@ -8,7 +8,9 @@ function userMiddleware(req,res,next){
     })
     .then(function(value){
         if(value){
-           
+             res.json({
+             firstname:firstname
+            })
             next();
         }
         else{

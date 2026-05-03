@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { InputCompo } from "../components/InputCompo";
 import { useNavigate } from "react-router-dom";
 
-export default function SignupPage() {
+export default function SigninPage() {
     const [firstname, setFirstname] =useState('')
-    const [lastname,setLastname]=useState('')
+
     const [password,setPassword]=useState("")
     const navigate=useNavigate();
   return (
@@ -22,21 +22,15 @@ export default function SignupPage() {
         text-white
         
       ">
-        <h2 className="text-2xl font-bold mb-4">Sign Up</h2><div className="flex flex-col">
+        <h2 className="text-2xl font-bold mb-4">Sign In</h2><div className="flex flex-col">
          <InputCompo onChange={(function(e){
             setFirstname(e.target.value)
-         })} title="firstname" type="text" placeholder="enter your first name..." className=" px-4 py-2 mb-5
+         })} title="Username" type="text" placeholder="enter your  username..." className=" px-4 py-2 mb-5
           bg-white/30 
           rounded-lg 
           hover:bg-white/40 
           transition" />
-          <InputCompo onChange={(function(e){
-            setLastname(e.target.value)
-         })} title="lastname" type="text" placeholder="enter your last name..." className=" px-4 py-2 mb-5
-          bg-white/30 
-          rounded-lg 
-          hover:bg-white/40 
-          transition"/>
+         
           <InputCompo onChange={(function(e){
             setPassword(e.target.value)
          })} title="Password" type="Password" placeholder="enter your password..." className=" px-4 py-2 mb-5
@@ -45,26 +39,24 @@ export default function SignupPage() {
           hover:bg-white/40 
           transition"/></div>
         <button onClick={()=>{
-            fetch('http://localhost:3001/user/signup',{
+            fetch('http://localhost:3001/user/signin',{
                 method:"POST",
                  headers: {
-           "Content-Type": "application/json"
+           
+                firstname,
+                 password
       },
-      body:JSON.stringify({
-        firstname,
-        lastname,
-        password
-      })
+      
             })
             .then(async function(res){
                 const data= await res.json();
                 if(res.ok){
-                    localStorage.setItem("firstname", data.firstname); 
+                    localStorage.setItem("firstname", data.firstname);
                     navigate('/userDashboard')
-                    alert("signup successful")
+                    alert("signin successful")
                 }
                 else {
-    alert(data.msg || "signup failed");
+    alert(data.msg || "signin failed");
   }
 
             })
@@ -80,7 +72,7 @@ export default function SignupPage() {
           hover:bg-pink-400 
           transition
         ">
-          Signup
+          Signin
         </button>
       </div>
     </div>
