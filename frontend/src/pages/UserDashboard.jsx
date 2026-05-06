@@ -1,7 +1,11 @@
+
+import { ThemeTogglerButton } from "@/components/animate-ui/components/buttons/theme-toggler";
 import { Balance } from "../components/Balance";
 import { InputCompo } from "../components/InputCompo";
 import { User } from "../components/User";
 import { useEffect, useState } from "react";
+import ThemeTogglerButtonDemo from "./ThemeTogglerButton";
+
 
 export function UserDashboard(){
     const [firstname,setFirstname]=useState("");
@@ -43,9 +47,15 @@ export function UserDashboard(){
     
     console.log(firstname)
 
-    return <div>
-        <div className="flex justify-between bg-[#381932] h-20 pt-5 pl-2 pr-2 text-gray-200">
+    return <div className="h-full bg-white dark:bg-black text-black dark:text-white">
+        <div className="flex  bg-[#381932] h-20 pt-5 pl-2 pr-2 text-gray-200">
             <h3>Payments App</h3>
+            
+            <div className=" h-10 w-10 ml-250">
+                 <ThemeTogglerButtonDemo/>
+
+                 </div>
+
             <a>hello, {firstname}</a>
         </div>
         <div className="mt-5 ml-5">
