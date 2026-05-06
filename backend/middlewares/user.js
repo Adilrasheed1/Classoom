@@ -11,15 +11,17 @@ function userMiddleware(req,res,next){
     .then(function(value){
       if (value) {
         const token = jwt.sign({
-            userId: user._id
+            userId: value._id
         }, JWT_SECRET);
   
         res.json({
+            
             firstname:firstname,
             token: token
         })
-        return;
+    next()
     }
+    
         else{
              res.status(403).json({
                 msg:"user does not exist",
