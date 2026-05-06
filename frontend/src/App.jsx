@@ -7,10 +7,12 @@ import SigninPage from "./pages/SigninPage"
 import { SendMoney } from "./pages/SendMoney"
 import PlasmaWave from './PlasmaWave';
 
+
 function App() {
  
   return (
-    <div className="h-screen w-full fixed ">
+    <div className="h-screen w-full fixed bg-white dark:bg-black text-black dark:text-white ">
+
        <div className="absolute inset-0 -z-10">
         <PlasmaWave
           colors={["#A855F7", "#06B6D4"]}
