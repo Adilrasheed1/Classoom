@@ -59,7 +59,8 @@ export default function SignupPage() {
             .then(async function(res){
                 const data= await res.json();
                 if(res.ok){
-                    localStorage.setItem("firstname", data.firstname); 
+                    localStorage.setItem("firstname", data.firstname);
+                    console.log(firstname) 
                     navigate('/userDashboard')
                     alert("signup successful")
                 }

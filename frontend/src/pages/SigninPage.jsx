@@ -51,7 +51,10 @@ export default function SigninPage() {
             .then(async function(res){
                 const data= await res.json();
                 if(res.ok){
+                      console.log("LOGIN DATA:", data);
+
                     localStorage.setItem("firstname", data.firstname);
+                    localStorage.setItem("token", data.token)
                     navigate('/userDashboard')
                     alert("signin successful")
                 }
